@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6">
+      <h1><%= @task.title %></h1>
+      <div class="alert alert-secondary mt-4" role="alert">
+        <p><%= @task.details %></p>
+      </div>
+      <div class="form-check">
+      <form>
+        <% if @task.completed  %>
+          <input type="checkbox" class="form-check-input" checked disabled>
+          <label class="form-check-label d-inline" for="completed-checkbox">
+            This task is completed
+          </label>
+        <% else %>
+          <input type="checkbox" class="form-check-input" disabled >
+            <label class="form-check-label d-inline" for="completed-checkbox">
+            This task is not completed
+          </label>
+        <% end %>
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-6">
+      <%= link_to "Back to list", tasks_path, class: "text-decoration-none" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h1>My Tasks</h1>
+
+  <% @tasks.each do |task| %>
+    <div class="mt-4 row">
+      <div class="col-6">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <div class="form-check">
+                <% if task.completed %>
+                  <%= check_box_tag "", nil, true, class: "form-check-input" %>
+                <% else %>
+                  <%= check_box_tag "", nil, false, class: "form-check-input" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <%= link_to task.title, task_path(task), class: "form-control", readonly: true %>
+        </div>
+        <% if task.completed %>
+          <p class="text-success mt-2">Task is completed</p>
+        <% else %>
+          <p class="text-danger mt-2">Task is not completed</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
