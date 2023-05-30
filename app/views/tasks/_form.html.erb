@@ -1,0 +1,21 @@
+<%= form_with model: @task do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+
+  <% if action_name == 'new' %>
+    <!-- Only display "Completed" field in the new form -->
+    <%= f.label :completed %>
+    <%= f.check_box :completed %>
+  <% else %>
+    <!-- Display "Completed" field with checked state based on @task.completed -->
+    <%= f.label :completed do %>
+      <%= f.check_box :completed, checked: @task.completed %>
+      Completed
+    <% end %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
+
